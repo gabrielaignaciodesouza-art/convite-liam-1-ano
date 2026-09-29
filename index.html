@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b45">
+<title>Liam — 1 Aninho 👑</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  background:#061638;
+  color:#fff;
+  min-height:100vh;
+}
+.page{
+  min-height:100vh;
+  padding:22px 14px 34px;
+  display:flex;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(220,181,74,.22), transparent 30%),
+    linear-gradient(180deg,#071b45 0%,#061638 55%,#04112d 100%);
+}
+.card{
+  width:100%;
+  max-width:520px;
+  border:1px solid rgba(224,190,91,.75);
+  border-radius:28px;
+  padding:28px 20px 24px;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(6,22,56,.93),rgba(4,17,45,.97)),
+    radial-gradient(circle at 50% 15%,#214d99,transparent 55%);
+  box-shadow:0 0 35px rgba(220,181,74,.16), inset 0 0 45px rgba(255,255,255,.025);
+}
+.card:before,.card:after{
+  content:"";
+  position:absolute;
+  top:15px;bottom:15px;
+  width:7px;
+  border-top:1px solid #dcb54f;
+  border-bottom:1px solid #dcb54f;
+  opacity:.7;
+}
+.card:before{left:12px}
+.card:after{right:12px}
+.ornament{
+  text-align:center;
+  color:#e0bd5b;
+  letter-spacing:8px;
+  font-size:14px;
+  margin-bottom:12px;
+}
+.crown{
+  text-align:center;
+  font-size:48px;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,.35));
+}
+.ears{
+  width:88px;height:48px;margin:3px auto 13px;position:relative;
+}
+.ears:before,.ears:after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:38px;height:38px;
+  border:3px solid #e0bd5b;
+  border-radius:50%;
+  background:#0b2558;
+}
+.ears:before{left:0}
+.ears:after{right:0}
+.ears span{
+  position:absolute;
+  left:28px;top:18px;
+  width:32px;height:25px;
+  border-radius:50% 50% 45% 45%;
+  background:#0b2558;
+  border:3px solid #e0bd5b;
+  z-index:2;
+}
+h1{
+  text-align:center;
+  font-size:24px;
+  line-height:1.25;
+  margin:8px 25px 8px;
+  color:#f2d47b;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+.subtitle{
+  text-align:center;
+  font-size:17px;
+  margin:0 0 20px;
+  color:#fff;
+}
+.name{
+  text-align:center;
+  font-size:42px;
+  color:#f0d071;
+  letter-spacing:3px;
+  margin:2px 0;
+  text-transform:uppercase;
+}
+.age{
+  text-align:center;
+  font-size:16px;
+  letter-spacing:4px;
+  margin-bottom:22px;
+  color:#dfe8ff;
+}
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,#dcb54f,transparent);
+  margin:20px 0;
+}
+.details{
+  display:grid;
+  gap:12px;
+}
+.detail{
+  text-align:center;
+  padding:13px 10px;
+  border:1px solid rgba(224,190,91,.3);
+  border-radius:16px;
+  background:rgba(255,255,255,.035);
+}
+.detail .icon{font-size:20px}
+.detail strong{
+  display:block;
+  color:#f0d071;
+  font-size:16px;
+  margin-top:4px;
+}
+.detail span{
+  display:block;
+  margin-top:4px;
+  color:#f7f8ff;
+  font-size:15px;
+  line-height:1.35;
+}
+.count-title{
+  text-align:center;
+  color:#f0d071;
+  font-size:15px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+}
+.timebox{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(224,190,91,.35);
+  border-radius:12px;
+  padding:9px 3px;
+  text-align:center;
+}
+.timebox b{
+  display:block;
+  font-size:23px;
+  color:#fff;
+}
+.timebox small{color:#cfd8ef;font-size:10px}
+.buttons{
+  display:grid;
+  gap:10px;
+  margin-top:20px;
+}
+.btn{
+  display:block;
+  text-decoration:none;
+  text-align:center;
+  padding:14px 12px;
+  border-radius:14px;
+  font-family:Arial,sans-serif;
+  font-weight:700;
+  letter-spacing:.2px;
+  transition:.2s;
+}
+.btn.gold{
+  background:linear-gradient(135deg,#e9cb72,#b58b27);
+  color:#071638;
+}
+.btn.blue{
+  border:1px solid #dcb54f;
+  color:#fff;
+  background:rgba(8,31,75,.9);
+}
+.btn:hover{transform:translateY(-1px)}
+.gift{
+  margin-top:18px;
+  border:1px solid rgba(224,190,91,.35);
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(255,255,255,.025);
+}
+.gift summary{
+  cursor:pointer;
+  list-style:none;
+  padding:15px;
+  text-align:center;
+  color:#f0d071;
+  font-weight:bold;
+  font-family:Arial,sans-serif;
+}
+.gift summary::-webkit-details-marker{display:none}
+.gift-content{
+  padding:0 18px 17px;
+  color:#eef2ff;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  line-height:1.55;
+}
+.gift-content p{text-align:center;margin:0 0 10px}
+.gift-content ul{margin:8px 0;padding-left:22px}
+.gift-content li{margin:5px 0}
+.small-note{
+  text-align:center;
+  margin-top:12px;
+  color:#bfc9df;
+  font-size:12px;
+}
+.footer{
+  text-align:center;
+  margin-top:22px;
+  color:#e6eafa;
+  font-size:14px;
+  line-height:1.5;
+}
+.footer b{color:#f0d071}
+@media(min-width:480px){
+  .card{padding:34px 28px 28px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <main class="card">
+    <div class="ornament">✦ ✧ ✦</div>
+    <div class="crown">👑</div>
+    <div class="ears"><span></span></div>
+
+    <h1>Um pequeno príncipe está completando 1 aninho!</h1>
+    <p class="subtitle">Venha celebrar esse dia tão especial conosco.</p>
+
+    <div class="name">Liam</div>
+    <div class="age">1 ANINHO</div>
+
+    <div class="divider"></div>
+
+    <section class="details">
+      <div class="detail">
+        <div class="icon">📅</div>
+        <strong>07 de novembro de 2026</strong>
+        <span>sábado</span>
+      </div>
+      <div class="detail">
+        <div class="icon">🕞</div>
+        <strong>15h30</strong>
+        <span>Esperamos você!</span>
+      </div>
+      <div class="detail">
+        <div class="icon">🏰</div>
+        <strong>Salão Toys Eventos</strong>
+        <span>Av. Alexandrino de Alencar, 1167<br>Morada do Vale I — Gravataí/RS<br>94085-120</span>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <div class="count-title">Contagem regressiva</div>
+    <div class="countdown" aria-label="Contagem regressiva">
+      <div class="timebox"><b id="days">--</b><small>DIAS</small></div>
+      <div class="timebox"><b id="hours">--</b><small>HORAS</small></div>
+      <div class="timebox"><b id="minutes">--</b><small>MIN</small></div>
+      <div class="timebox"><b id="seconds">--</b><small>SEG</small></div>
+    </div>
+
+    <div class="buttons">
+      <a class="btn gold" target="_blank" rel="noopener"
+         href="https://www.google.com/maps/search/?api=1&query=Sal%C3%A3o%20Toys%20Eventos%2C%20Av.%20Alexandrino%20de%20Alencar%2C%201167%2C%20Morada%20do%20Vale%20I%2C%20Gravata%C3%AD%2C%20RS">
+        📍 COMO CHEGAR
+      </a>
+
+      <a class="btn blue" target="_blank" rel="noopener"
+         href="https://wa.me/5551985081930?text=Ol%C3%A1%21%20Confirmo%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20de%201%20aninho%20do%20Liam%20%F0%9F%92%99%F0%9F%91%91">
+        💙 CONFIRMAR PRESENÇA
+      </a>
+    </div>
+
+    <details class="gift">
+      <summary>🎁 Se quiser presentear nosso pequeno príncipe...</summary>
+      <div class="gift-content">
+        <p>Preparamos algumas sugestões com carinho para quem desejar escolher um mimo para o Liam. 💙</p>
+        <ul>
+          <li>👕 Roupinhas — tamanho 2</li>
+          <li>🧸 Brinquedos apropriados para 1 ano+</li>
+          <li>📚 Livrinhos infantis</li>
+          <li>🎨 Brinquedos educativos e de desenvolvimento</li>
+        </ul>
+        <p><b>Sua presença é o nosso maior presente! 👑</b></p>
+      </div>
+    </details>
+
+    <div class="footer">
+      Sua presença será uma honra para nós. ✨<br>
+      Com carinho,<br>
+      <b>Família do Liam 💙</b>
+    </div>
+  </main>
+</div>
+
+<script>
+const target = new Date("2026-11-07T15:30:00-03:00").getTime();
+
+function updateCountdown(){
+  const now = Date.now();
+  let diff = target - now;
+  if(diff < 0) diff = 0;
+
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+  const seconds = Math.floor((diff % 60000) / 1000);
+
+  document.getElementById("days").textContent = String(days).padStart(2,"0");
+  document.getElementById("hours").textContent = String(hours).padStart(2,"0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2,"0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2,"0");
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
